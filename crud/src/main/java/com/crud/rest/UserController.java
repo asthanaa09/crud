@@ -28,7 +28,7 @@ public class UserController {
 			@RequestParam(value = "id", required = false) Long id) {
 		
 		if(id != null)
-			user.setId(id);
+			user.setId(id);   
 		
 		user = userService.createOrUpdate(user);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
