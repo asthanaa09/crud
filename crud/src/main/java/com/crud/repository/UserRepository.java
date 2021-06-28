@@ -18,5 +18,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 			+ "AND (IFNULL(PINCODE, '') LIKE %:?3%)", nativeQuery = true)
 	public List<User> findByNameAndPincode(String firstName, String lastName, String pincode);
 	
-	public List<User> findAllByDobOrderByDobDesc();
+	@Query(value="SELECT u FROM User u ORDER BY u.dob DESC")
+	public List<User> findAllOrderByDobDesc();
 } 

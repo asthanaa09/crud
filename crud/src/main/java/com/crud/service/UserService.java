@@ -88,7 +88,7 @@ public class UserService {
 	 * @return 
 	 */
 	public List<User> findAllUsers() {
-		List<User> users = userRepository.findAllByDobOrderByDobDesc();
+		List<User> users = userRepository.findAllOrderByDobDesc();
 		
 		if(users == null || users.size() == 0)
 			return users;

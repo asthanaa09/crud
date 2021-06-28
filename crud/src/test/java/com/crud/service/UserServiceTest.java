@@ -115,7 +115,7 @@ class UserServiceTest {
 				buildTestUser("Abhishek", "Singh", null, "1134422", null, "454567", "user3", null, Utils.dayBeforeFromNow(6))).collect(Collectors.toList());
 		
 		// When
-		Mockito.when(userRepository.findAllByDobOrderByDobDesc()).thenReturn(testUsres);
+		Mockito.when(userRepository.findAllOrderByDobDesc()).thenReturn(testUsres);
 		List<User> users = userService.findAllUsers();
 		assertEquals(testUsres.size(), users.size());
 		logger.debug("Testing Find all Users list Passed");
