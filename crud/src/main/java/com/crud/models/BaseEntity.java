@@ -13,16 +13,19 @@ import javax.persistence.TemporalType;
 
 import com.crud.utils.Utils;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Contains common properties of each JPA entity 
  * e.g id 
- * 
- * TODO: Use lombook
  * 
  * @author Anurag Asthana
  *
  */
 @MappedSuperclass
+@Setter
+@Getter
 public class BaseEntity {
 
 	@Id
@@ -41,23 +44,6 @@ public class BaseEntity {
 		if(this.getCreationTime() == null)
 			this.setCreationTime(Utils.now());
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Date getCreationTime() {
-		return creationTime;
-	}
-
-	public void setCreationTime(Date creationTime) {
-		this.creationTime = creationTime;
-	}
-	
 
 	/**
 	 * Generate unique has-number for every object. Reduce hash colision problem
